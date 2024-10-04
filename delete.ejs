@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Book</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Add your CSS file path here -->
+</head>
+<body>
+    <div class="container delete-book-container">
+        <h2 class="delete-header">Delete Book</h2>
+        
+        <div class="delete-content">
+            <!-- Paragraph with confirmation message -->
+            <p>Are you sure you want to delete the book "<strong><%= book.book_name %></strong>" by <%= book.author %>?</p>
+
+            <!-- Small book image below the confirmation message -->
+            <img src="<%= book.cover_img %>" name="delete-img" alt="<%= book.book_name %> cover image">
+            
+            <!-- Buttons in the same line -->
+            <form action="/delete/<%= book.id %>" method="POST" class="delete-form">
+                <button type="submit" class="delete-button">Yes, Delete</button>
+                <a href="/" class="cancel-button">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

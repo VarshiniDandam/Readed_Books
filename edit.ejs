@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Reusing the same CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Book</h2>
+        <form action="/edit/<%= book.id %>" method="POST" class="edit-book-form">
+            <input type="hidden" name="id" value="<%= book.id %>">
+
+            <div class="form-item">
+                <label for="book_name_<%= book.id %>">Book Name:</label>
+                <input type="text" id="book_name_<%= book.id %>" name="book_name" value="<%= book.book_name %>" required>
+            </div>
+
+            <div class="form-item">
+                <label for="author_<%= book.id %>">Author:</label>
+                <input type="text" id="author_<%= book.id %>" name="author" value="<%= book.author %>" required>
+            </div>
+
+            <div class="form-item">
+                <label for="description_<%= book.id %>">Description:</label>
+                <textarea id="description_<%= book.id %>" name="book_description" required><%= book.book_description %></textarea>
+            </div>
+
+            <div class="form-item">
+                <label for="recommendation_<%= book.id %>">Recommendation:</label>
+                <input type="text" id="recommendation_<%= book.id %>" name="recommendation" value="<%= book.recommendation %>" required>
+            </div>
+
+            <div class="form-item">
+                <label for="cover_img_<%= book.id %>">Cover Image URL:</label>
+                <input type="text" id="cover_img_<%= book.id %>" name="cover_img" value="<%= book.cover_img %>" required>
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="save-button">Save Changes</button>
+                <a href="/" class="cancel-button">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

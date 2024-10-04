@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= book.book_name %> - Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="detail-header"><%= book.book_name %></h1>
+        
+        <div class="details-wrapper">
+            <div class="book-details">
+                <p><strong>Author:</strong> <%= book.author %></p>
+                <p><strong>Description:</strong> <%= book.book_description %></p>
+                <p><strong>Recommendation:</strong> <%= book.recommendation %></p>
+            </div>
+            <div class="book-image">
+                <img src="/images/<%= book.cover_img %>" alt="<%= book.book_name %> Cover" class="detail-img">
+            </div>
+        </div>
+
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>

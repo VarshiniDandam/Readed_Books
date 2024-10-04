@@ -1,0 +1,317 @@
+/* Color Palette
+   - #CCD5AE
+   - #E9EDC9
+   - #FEFAE0
+   - #FAEDCD
+   - #D4A373
+*/
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E9EDC9; /* Light peach background */
+}
+
+/* Container to hold all sections */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FAEDCD !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Upper Section */
+.upper-section {
+    background-color: #CCD5AE; /* Soft green */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.name-container h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #333; /* Dark text for contrast */
+}
+
+.name-container p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #E9EDC9; /* Light lime */
+    padding: 20.5px 0;
+    color: #333;
+}
+
+/* Middle Section */
+.middle-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #FEFAE0; /* Very light yellow */
+}
+
+.box.books {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px; /* Space between book items */
+    padding-bottom: 10px;
+    /* Scrollbar Styling for WebKit Browsers */
+}
+
+.box.books::-webkit-scrollbar {
+    height: 8px;
+}
+
+.box.books::-webkit-scrollbar-track {
+    background: #D4A373; /* Muted orange */
+    border-radius: 4px;
+}
+
+.box.books::-webkit-scrollbar-thumb {
+    background: #E9EDC9; /* Light lime */
+    border-radius: 4px;
+}
+
+.box.books::-webkit-scrollbar-thumb:hover {
+    background: #D4A373; /* Darker orange on hover */
+}
+
+/* Book Item Styles */
+.book-item {
+    flex: 1 1 200px; /* Book item takes at least 200px of space and shrinks/grows */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    max-width: 200px;
+}
+
+/* On hover, slightly lift the book item */
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+.book-item img {
+    width: auto;
+    height: 250px; /* Fixed height to maintain the cover size */
+    object-fit: cover; /* Ensures the image covers the container */
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.book-item h3, .book-item h2{
+    margin: 10px 0 5px 0;
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.book-item p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .book-item {
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .book-item {
+        flex: 0 0 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .book-item {
+        flex: 0 0 140px;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-item {
+        flex: 0 0 120px;
+    }
+}
+
+/* Footer Section */
+.footer {
+    background-color: #E9EDC9; /* Light lime */
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+}
+
+.footer p {
+    margin: 0;
+    color: #555;
+}
+
+.add-book-button {
+    background-color: #007bff; /* Customize color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.add-book-button:hover {
+    background-color: #0056b3; /* Darken on hover */
+}
+
+.delete-book-container .detail-container .edit-book-container{
+    display: flexbox;
+    text-align: left;
+    height: 80%;
+    width: 80%;
+}
+
+/* Container to wrap the form with equal padding on all sides */
+
+/* Form styling */
+.add-book-form .edit-book-form{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling each form item */
+.form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Label and input are side by side */
+label {
+    width: 30%;
+    font-weight: bold;
+}
+
+/* Input fields to take up the remaining width */
+input[type="text"], textarea {
+    width: 65%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Textarea size */
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Form footer with centered button */
+.form-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Button styling */
+.add-button .save-button, .cancel-button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button {
+    background-color: #f44336; /* Red color for the cancel button */
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Back to home link styling */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Flexbox container to arrange books horizontally */
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Gap between book items */
+    justify-content: flex-start; /* Align books to the left */
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+/* Button for delete and view details */
+.delete-button, .view-details-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #f44336;
+}
+
+.view-details-button:hover {
+    background-color: #45a049;
+}
+
+/* Edit button as an icon */
+.edit-book-link img.icon {
+    width: 20px;
+    height: 20px;
+}

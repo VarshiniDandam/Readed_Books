@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBookStore</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <section class="upper-section">
+            <div class="name name-container">
+                <h1><%= username %></h1>
+                <p>I have read the following books:</p>
+            </div>
+        </section>
+
+        <section class="middle-section">
+            <div class="div">
+                <!-- Add New Book Form -->
+                <a href="/add" class="add-book-link">Add a New Book</a>
+            </div>
+            <div class="books-container">
+
+                <!-- Iterating over each book -->
+                <% bookItems.forEach(book => { %>
+                    <div class="book-item" id="book<%= book.id %>">
+                        <img src="<%= book.cover_img %>" alt="<%= book.book_name %> cover image">
+                        <h2><%= book.book_name %></h2>
+                        <p><strong>Author:</strong> <%= book.author %></p>
+                        <p><strong>Recommendation:</strong> <%= book.recommendation %></p>
+
+                        <!-- Delete Form -->
+                        <div class="delete-book">
+                            <a href="/delete/<%= book.id %>" class="delete-book-link">
+                                <button type="button" class="delete-button">Delete</button>
+                            </a>
+                        </div>
+
+                        <!-- View Details Link -->
+                        <a href="/details/<%= book.id %>" class="view-details-button">View Details</a>
+
+                        <!-- Edit Button -->
+                        <div class="edit-book">
+                            <a href="/edit/<%= book.id %>" class="edit-book-link">
+                                <button>Edit Book</button>
+                            </a>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+
+        <section class="footer">
+            <!-- Footer content -->
+            <p>&copy; 2024 MyBookStore. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script>
+
+        function toggleEditForm(bookId) {
+            const editForm = document.getElementById(`editForm${bookId}`);
+            if (editForm.style.display === 'none' || editForm.style.display === '') {
+                editForm.style.display = 'block';
+            } else {
+                editForm.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('toggleRecommendation');
+            const recommendationPara = document.getElementById('recommendation');
+
+            toggleButton.addEventListener('click', () => {
+            if (recommendationPara.style.display === 'none') {
+                recommendationPara.style.display = 'block';
+            } else {
+                recommendationPara.style.display = 'none';
+            }
+            });
+        });
+    </script>
+</body>
+</html>
