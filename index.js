@@ -1,18 +1,17 @@
+require('dotenv').config();
+
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const pg = require("pg");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "admin",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL, // Use environment variable for DB connection
 });
+
 db.connect();
 
 app.use(express.urlencoded({ extended: true }));
